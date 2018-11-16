@@ -2,6 +2,7 @@ package com.blog.www.guideview;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -37,7 +38,9 @@ class Configuration implements Parcelable {
     int mPaddingBottom = 0;
 
     /**
-     *
+     * 设置遮罩系统是否可点击并处理点击事件
+     * <p>
+     * true 遮罩不可点击，处于不可点击状态 false 可点击，遮罩自己可以处理自身点击事件
      */
     boolean mOutsideTouchable;
 
@@ -96,6 +99,7 @@ class Configuration implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        Log.e("kevin", "writeToParcel");
         dest.writeInt(mAlpha);
         dest.writeInt(mFullingViewId);
         dest.writeInt(mTargetViewId);
@@ -114,6 +118,7 @@ class Configuration implements Parcelable {
     public static final Creator<Configuration> CREATOR = new Creator<Configuration>() {
         @Override
         public Configuration createFromParcel(Parcel source) {
+            Log.e("kevin", "createFromParcel");
             Configuration conf = new Configuration();
             conf.mAlpha = source.readInt();
             conf.mFullingViewId = source.readInt();
@@ -133,6 +138,7 @@ class Configuration implements Parcelable {
 
         @Override
         public Configuration[] newArray(int size) {
+            Log.e("kevin", "newArray");
             return new Configuration[size];
         }
     };

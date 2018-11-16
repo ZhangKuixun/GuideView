@@ -11,6 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -39,8 +40,6 @@ class MaskView extends ViewGroup {
     private Paint mEraser;
     private Bitmap mEraserBitmap;
     private Canvas mEraserCanvas;
-    private Paint mPaint;
-    private Paint transparentPaint;
 
     public MaskView(Context context) {
         this(context, null, 0);
@@ -60,11 +59,11 @@ class MaskView extends ViewGroup {
         mEraserBitmap = Bitmap.createBitmap(size.x, size.y, Bitmap.Config.ARGB_8888);
         mEraserCanvas = new Canvas(mEraserBitmap);
 
-        mPaint = new Paint();
-        mPaint.setColor(0xcc000000);
-        transparentPaint = new Paint();
-        transparentPaint.setColor(getResources().getColor(android.R.color.transparent));
-        transparentPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+//        Paint paint = new Paint();
+//        paint.setColor(0xcc000000);
+//        Paint transparentPaint = new Paint();
+//        transparentPaint.setColor(getResources().getColor(android.R.color.transparent));
+//        transparentPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
 
         mEraser = new Paint();
         mEraser.setColor(0xFFFFFFFF);
@@ -74,6 +73,7 @@ class MaskView extends ViewGroup {
 
     @Override
     protected void onDetachedFromWindow() {
+        Log.e("kevin", "onDetachedFromWindow");
         super.onDetachedFromWindow();
         try {
             clearFocus();
@@ -86,6 +86,7 @@ class MaskView extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.e("kevin", "onMeasure");
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         final int w = MeasureSpec.getSize(widthMeasureSpec);
         final int h = MeasureSpec.getSize(heightMeasureSpec);
@@ -111,6 +112,7 @@ class MaskView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.e("kevin", "onLayout");
         final int count = getChildCount();
         final float density = getResources().getDisplayMetrics().density;
         View child;
@@ -237,6 +239,7 @@ class MaskView extends ViewGroup {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
+        Log.e("kevin", "dispatchDraw");
         final long drawingTime = getDrawingTime();
         try {
             View child;
@@ -251,6 +254,7 @@ class MaskView extends ViewGroup {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        Log.e("kevin", "onDraw");
         super.onDraw(canvas);
         mEraserBitmap.eraseColor(Color.TRANSPARENT);
         mEraserCanvas.drawColor(mFullingPaint.getColor());

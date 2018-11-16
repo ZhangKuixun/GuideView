@@ -355,7 +355,7 @@ public class GuideBuilder {
      *
      * @author Simon
      */
-    public static interface OnVisibilityChangedListener {
+    public interface OnVisibilityChangedListener {
 
         void onShown();
 

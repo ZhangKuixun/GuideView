@@ -2,6 +2,7 @@ package com.blog.www.guideview;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -171,8 +172,7 @@ public class Guide implements View.OnKeyListener, View.OnClickListener {
             try {
                 localClass = Class.forName("com.android.internal.R$dimen");
                 Object localObject = localClass.newInstance();
-                int i5 =
-                        Integer.parseInt(localClass.getField("status_bar_height").get(localObject).toString());
+                int i5 = Integer.parseInt(localClass.getField("status_bar_height").get(localObject).toString());
                 parentY = activity.getResources().getDimensionPixelSize(i5);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -237,6 +237,7 @@ public class Guide implements View.OnKeyListener, View.OnClickListener {
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
+        Log.e("kevin", "onKey");
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
             if (mConfiguration != null && mConfiguration.mAutoDismiss) {
                 dismiss();
@@ -250,6 +251,7 @@ public class Guide implements View.OnKeyListener, View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Log.e("kevin", "onKey");
         if (mConfiguration != null && mConfiguration.mAutoDismiss) {
             dismiss();
         }

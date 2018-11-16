@@ -19,31 +19,31 @@ import android.view.View;
  */
 public interface Component {
 
-    public final static int FIT_START = MaskView.LayoutParams.PARENT_START;
+    int FIT_START = MaskView.LayoutParams.PARENT_START;
 
-    public final static int FIT_END = MaskView.LayoutParams.PARENT_END;
+    int FIT_END = MaskView.LayoutParams.PARENT_END;
 
-    public final static int FIT_CENTER = MaskView.LayoutParams.PARENT_CENTER;
+    int FIT_CENTER = MaskView.LayoutParams.PARENT_CENTER;
 
-    public final static int ANCHOR_LEFT = MaskView.LayoutParams.ANCHOR_LEFT;
+    int ANCHOR_LEFT = MaskView.LayoutParams.ANCHOR_LEFT;
 
-    public final static int ANCHOR_RIGHT = MaskView.LayoutParams.ANCHOR_RIGHT;
+    int ANCHOR_RIGHT = MaskView.LayoutParams.ANCHOR_RIGHT;
 
-    public final static int ANCHOR_BOTTOM = MaskView.LayoutParams.ANCHOR_BOTTOM;
+    int ANCHOR_BOTTOM = MaskView.LayoutParams.ANCHOR_BOTTOM;
 
-    public final static int ANCHOR_TOP = MaskView.LayoutParams.ANCHOR_TOP;
+    int ANCHOR_TOP = MaskView.LayoutParams.ANCHOR_TOP;
 
-    public final static int ANCHOR_OVER = MaskView.LayoutParams.ANCHOR_OVER;
+    int ANCHOR_OVER = MaskView.LayoutParams.ANCHOR_OVER;
 
     /**
      * 圆角矩形&矩形
      */
-    public final static int ROUNDRECT = 0;
+    int ROUNDRECT = 0;
 
     /**
      * 圆形
      */
-    public final static int CIRCLE = 1;
+    int CIRCLE = 1;
 
     /**
      * 需要显示的view
